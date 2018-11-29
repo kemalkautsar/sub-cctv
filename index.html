@@ -21,7 +21,6 @@
 
     <base target="_blank">
 
-    <title>captureStream(): video to video</title>
 
     <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
     <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
@@ -34,32 +33,14 @@
 
     <div id="container">
 
-        <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a> <span>captureStream():
-                video to video</span>
-        </h1>
-
-        <video id="leftVideo" playsinline controls loop muted>
-            <source src="../../../video/chrome.webm" type="video/webm" />
-            <source src="../../../video/chrome.mp4" type="video/mp4" />
-            <p>This browser does not support the video element.</p>
+        <video id="test_video" controls autoplay>
+            <source src="rtsp://guest:guest1234@36.66.208.99/mpeg4/ch101/sub/av_stream">
         </video>
-
-        <video id="rightVideo" playsinline autoplay></video>
-
-        <p>Press play on the left video to start the demo.</p>
-
-        <p>A stream is captured from the video element on the left using its <code>captureStream()</code> method and
-            set as
-            the <code>srcObject</code> of the video element on the right.</p>
-
-        <p>The <code>stream</code> variable are in global scope, so you can inspect them from the browser console.</p>
-
-        <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/capture/video-video" title="View source for this page on GitHub"
-            id="viewSource">View source on GitHub</a>
 
     </div>
 
     <script src="js/main.js" async></script>
+    <script src="streamedian.js"></script>
 
     <script src="../../../js/lib/ga.js"></script>
 </body>
