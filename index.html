@@ -1,48 +1,33 @@
 <!DOCTYPE html>
-<!--
- *  Copyright (c) 2016 The WebRTC project authors. All Rights Reserved.
- *
- *  Use of this source code is governed by a BSD-style license
- *  that can be found in the LICENSE file in the root of the source
- *  tree.
--->
-<html>
-
+<html lang="en">
 <head>
-
-    <meta charset="utf-8">
-    <meta name="description" content="WebRTC code samples">
-    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
-    <meta itemprop="description" content="Client-side WebRTC code samples">
-    <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png">
-    <meta itemprop="name" content="WebRTC code samples">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta id="theme-color" name="theme-color" content="#ffffff">
-
-    <base target="_blank">
-
-
-    <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
-    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../../../css/main.css" />
-    <link rel="stylesheet" href="css/main.css" />
-
+    <meta charset="UTF-8">
+    <title>Streamedian HTML5 RTSP/HLS player example</title>
+    <style>
+        #test_video {
+            width: 720px;
+        }
+    </style>
 </head>
-
 <body>
+<div>
+    <input id="stream_url">
+    <button id="set_new_url">Set</button>
+</div>
+<video id="test_video" controls autoplay>
+    <source src="rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov" type="application/x-rtsp">
+    <!--<source src="rtsp://127.0.0.1:8554/test" type="application/x-rtsp">-->
+</video>
+<script src="https://cdn.bootcss.com/babel-polyfill/7.0.0-beta.2/polyfill.min.js"></script>
+<script src="streamedian.min.js"></script>
+<!--<script src="test.bundle2.js"></script>-->
+<!--<script src="http://45.32.210.71/streamedian.js"></script>-->
 
-    <div id="container">
-
-        <video id="test_video" controls autoplay>
-            <source src="rtsp://guest:guest1234@36.66.208.99/mpeg4/ch101/sub/av_stream">
-        </video>
-
-    </div>
-
-    <script src="js/main.js" async></script>
-    <script src="streamedian.js"></script>
-
-    <script src="../../../js/lib/ga.js"></script>
+<script>
+    if (window.Streamedian) {
+        // var p = Streamedian.player('test_video', {socket: "ws://45.32.210.71/ws/"})
+        var p = Streamedian.player('test_video', {socket: "wss://streamedian.com/ws/"})
+    }
+</script>
 </body>
-
 </html>
